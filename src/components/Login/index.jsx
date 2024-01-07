@@ -1,12 +1,14 @@
 import { InputPH, Spinner } from "components";
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [isfecthing, setFetch] = useState(false);
   const [errmsg, setErrmsg] = useState("");
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-4">
       <div
@@ -21,8 +23,8 @@ const Login = () => {
             class="w-[175px] h-[51px] inline-block bg-no-repeat bg-auto"
             role="img"
             style={{
-              "background-image": 'url("images/icons-1.png")',
-              "background-position": "0px -52px",
+              backgroundImage: 'url("images/icons-1.png")',
+              backgroundPosition: "0px -52px",
             }}
           ></i>
         </div>
@@ -42,9 +44,34 @@ const Login = () => {
             onClick={() => {
               if (pwd.length > 5) {
                 setFetch(true);
-                setTimeout(() => {
-                  setFetch(false);
-                }, 1000);
+                fetch("/users/login", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ email, pwd }),
+                })
+                  .then((response) => {
+                    if (!response.ok) {
+                      throw new Error("Network response was not ok");
+                    }
+                    return response.body;
+                  })
+                  .then((data) => {
+                    // Login successful, save session and reload page
+                    sessionStorage.setItem("loggedIn", true);
+                    window.location.reload();
+                  })
+                  .catch((error) => {
+                    console.error(
+                      "There has been a problem with your fetch operation:",
+                      error
+                    );
+                    setErrmsg("Invalid username or password");
+                  })
+                  .finally(() => {
+                    setFetch(false);
+                  });
               }
             }}
           >
