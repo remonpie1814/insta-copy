@@ -6,3 +6,5 @@ export { Login } from "./Login";
 export { InputPH } from "./InputPH";
 export { Spinner } from "./Spinner";
 export { ScreenShot } from "./ScreenShot";
+export { Footer } from "./Footer";
+export { DropdownMenu } from "./DropdownMenu";

@@ -12,7 +12,8 @@ const Login = () => {
       <div
         class="text-xs w-[350px] px-[40px] py-4 flex flex-col gap-4
         items-center justify-center text-center
-        border-[1px] border-neutral-300"
+        border-[1px] border-neutral-300
+        sm:border-none sm:w-full"
       >
         <div class="m-10">
           <i
@@ -63,8 +64,9 @@ const Login = () => {
         </div>
         <div className="w-full">
           <span
-            className="border-0 inline-block m-0 mr-[8px] top-[2px] p-0 relative align-baseline
-          bg-no-repeat h-[16px] w-[16px]"
+            className="border-0 inline-block m-0 mr-[8px] top-[2px] p-0 
+            relative align-baseline
+            bg-no-repeat h-[16px] w-[16px]"
             style={{
               backgroundImage: "url(images/icons-2.png)",
               backgroundPosition: "-414px -259px",
@@ -84,7 +86,8 @@ const Login = () => {
       <div
         className="text-xs w-[350px] px-[40px] py-4 flex flex-col gap-4
         items-center justify-center text-center
-        border-[1px] border-neutral-300"
+        border-[1px] border-neutral-300
+        sm:border-none sm:w-full"
       >
         <span className="text-sm">
           계정이 없으신가요?{" "}

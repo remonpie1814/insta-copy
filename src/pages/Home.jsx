@@ -1,4 +1,4 @@
-import { Loading, Login, ScreenShot } from "components";
+import { Footer, Loading, Login, ScreenShot } from "components";
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
@@ -12,12 +12,14 @@ const Home = () => {
   }, []);
   return (
     <div>
-      {/* {<Loading load={load} />} */}
-      <div className="flex flex-row my-[200px]">
-        <ScreenShot />
-
+      {<Loading load={load} />}
+      <div className="flex flex-row my-[100px] items-center justify-center">
+        <div className="md:hidden">
+          <ScreenShot />
+        </div>
         <Login />
       </div>
+      <Footer />
     </div>
   );
 };
