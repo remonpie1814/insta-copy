@@ -4,21 +4,24 @@ import { FaRegCompass } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { FaRegPaperPlane } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 import { IoMdSearch } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
-import { IoPaperPlaneOutline } from "react-icons/io5";
 import { PiFilmReel } from "react-icons/pi";
 import { CgProfile } from "react-icons/cg";
 const Sidebar = () => {
   return (
     <>
       <div
-        className="relative w-[230px] h-screen px-2
+        className="w-[230px] h-screen px-2
            border-r-[1px] border-gray-400
+           flex flex-col
+           overflow-x-visible
+           overflow-y-clip
            md:w-[70px]"
       >
-        <div className="absolute top-0 flex flex-col gap-3">
+        <div className="flex-shrink-0 gap-3">
           <div className="w-[200px] py-4 flex justify-start items-center scale-75 md:hidden">
             <i
               data-visualcompletion="css-img"
@@ -52,7 +55,7 @@ const Sidebar = () => {
             <PiFilmReel size={30} />
           </TooltipButton>
           <TooltipButton text="메시지">
-            <IoPaperPlaneOutline size={30} />
+            <FaRegPaperPlane size={30} />
           </TooltipButton>
           <TooltipButton text="알림">
             <FaRegHeart size={30} />
@@ -64,7 +67,7 @@ const Sidebar = () => {
             <CgProfile size={30} />
           </TooltipButton>
         </div>
-        <div className="absolute bottom-0">
+        <div className="flex-grow flex flex-col items-end justify-end">
           <TooltipButton className="tall:hidden" text="Threads">
             <FaThreads size={30} />
           </TooltipButton>
@@ -93,9 +96,9 @@ const TooltipButton = ({ children, text, description, className }) => {
   };
 
   return (
-    <div className={`flex flex-row items-center ${className}`}>
+    <div className={`relative w-full flex flex-row items-center ${className}`}>
       <button
-        className="flex flex-row items-center
+        className="flex flex-row items-center group
         w-[200px] min-w-[200px] h-[50px] px-2 py-2 rounded-2xl
         bg-white-A700
         md:w-[50px] md:min-w-[50px] md:justify-center
@@ -103,19 +106,23 @@ const TooltipButton = ({ children, text, description, className }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {children}
+        <span className="transform origin-center duration-500 group-hover:scale-110">
+          {children}
+        </span>
         <span className="pl-2 md:hidden">{text}</span>
       </button>
       <span
         className={`
+          absolute top-0 right-0 transform translate-x-full
           min-w-[100px] min-h-[40px]
-          flex justify-center items-center text-center
+          w-max
+          justify-center items-center text-center
         bg-white-A700
           px-2 rounded-xl
           shadow-2xl shadow-slate-800
           transition-all duration-500 ease-in-out
-          opacity-0
-          ${showTooltip ? "md:opacity-100 scale-100" : "scale-50"}
+          hidden z-[999]
+          ${showTooltip ? "md:flex scale-100 " : "scale-50"}
           `}
       >
         {description ? description : text}

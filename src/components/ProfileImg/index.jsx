@@ -1,10 +1,36 @@
 import React from "react";
 import styles from "./ProfileImg.module.css"; // Import the custom CSS module
 
-const ProfileImg = ({ src }) => {
+const profileImgStyleNotActive = {
+  position: "relative",
+  width: "57px",
+  height: "57px",
+  margin: "10px",
+  border: "3px solid transparent",
+  borderRadius: "50%",
+  backgroundImage: "",
+  backgroundOrigin: "border-box",
+  backgroundClip: "content-box, border-box",
+};
+
+const profileImgStyleActive = {
+  position: "relative",
+  width: "57px",
+  height: "57px",
+  margin: "10px",
+  border: "3px solid transparent",
+  borderRadius: "50%",
+  backgroundImage:
+    "linear-gradient(#fff, #fff), linear-gradient(to right, red 0%, blue 100%)",
+  backgroundOrigin: "border-box",
+  backgroundClip: "content-box, border-box",
+};
+
+const ProfileImg = ({ src, isNewPost }) => {
   return (
     <div
-      className={`${styles.profileImg} flex justify-center items-center origin-center scale-75`}
+      className={`flex justify-center items-center origin-center scale-75`}
+      style={isNewPost ? profileImgStyleActive : profileImgStyleNotActive}
     >
       <div
         className="min-w-[50px] min-h-[50px] max-w-[50px] max-h-[50px] overflow-hidden
