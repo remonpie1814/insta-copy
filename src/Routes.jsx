@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
-const Editor = React.lazy(() => import("pages/Editor"));
+const Test = React.lazy(() => import("pages/Test"));
 const ProjectRoutes = () => {
   return (
     <React.Suspense fallback={<>Loading...</>}>
@@ -10,7 +10,7 @@ const ProjectRoutes = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/editor" element={<Editor />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </Router>
     </React.Suspense>

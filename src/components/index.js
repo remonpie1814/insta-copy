@@ -8,3 +8,5 @@ export { Spinner } from "./Spinner";
 export { ScreenShot } from "./ScreenShot";
 export { Footer } from "./Footer";
 export { DropdownMenu } from "./DropdownMenu";
+export { Post } from "./Post";
+export { ProfileImg } from "./ProfileImg";
