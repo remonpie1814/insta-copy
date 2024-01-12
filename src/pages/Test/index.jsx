@@ -11,7 +11,7 @@ const Test = () => {
         </div>
         <div className="flex-grow h-screen ml-8 overflow-y-auto">
           <div className="">
-            <Post image="images/screenshot1.png" />
+            <Post images={["images/screenshot1.png"]} />
           </div>
         </div>
       </div>

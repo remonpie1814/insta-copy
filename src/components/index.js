@@ -10,3 +10,4 @@ export { Footer } from "./Footer";
 export { DropdownMenu } from "./DropdownMenu";
 export { Post } from "./Post";
 export { ProfileImg } from "./ProfileImg";
+export { Carousel } from "./Carousel";

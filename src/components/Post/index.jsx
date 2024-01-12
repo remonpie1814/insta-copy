@@ -1,4 +1,4 @@
-import { ProfileImg } from "components";
+import { Carousel, ProfileImg } from "components";
 import { IoIosMore } from "react-icons/io";
 import {
   FaRegPaperPlane,
@@ -13,7 +13,8 @@ const Post = ({
   children,
   userName,
   date,
-  image,
+  images,
+  imageRatio,
   likeCount,
   commentCount,
   isLiked,
@@ -24,8 +25,15 @@ const Post = ({
     <>
       <div className="w-[468px] flex flex-col gap-1 border-b-[1px] border-neutral-400">
         <div className="relative flex flex-row items-center justify-start">
-          <ProfileImg src="images/button-google.png" isNewPost={!isChecked} />{" "}
-          <span className="text-gray-700">yeji</span>
+          <div className="w-[50px] h-[50px] flex justify-center items-center mr-2">
+            <div className="scale-75 origin-left w-0 h-0 flex justify-center items-center">
+              <ProfileImg
+                src="images/button-google.png"
+                isNewPost={!isChecked}
+              />{" "}
+            </div>
+          </div>
+          <span className="text-gray-700 font-bold">notemanshop</span>
           <span className="text-gray-500 px-2"> · 1일</span>{" "}
           <div className="absolute top-1/2 right-2 transform -translate-y-1/2">
             <button>
@@ -33,8 +41,19 @@ const Post = ({
             </button>
           </div>
         </div>
-        <div className="w-full h-auto my-2 rounded-md border-[1px] border-neutral-300">
-          <img className="w-full" src={`${image}`} alt="" />
+        <div
+          className="w-full h-auto my-2 
+                    rounded-md border-[1px] border-neutral-300"
+        >
+          <Carousel
+            className={`w-full 
+            ${imageRatio ? "aspect-[" + imageRatio + "]" : "aspect-square"}`}
+            images={[
+              "images/home-phones.png",
+              "images/screenshot4.png",
+              "images/black.png",
+            ]}
+          />
         </div>
         <div className="relative w-full flex flex-row gap-4 justify-start">
           <button className="hover:opacity-50">

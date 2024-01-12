@@ -29,7 +29,7 @@ const profileImgStyleActive = {
 const ProfileImg = ({ src, isNewPost }) => {
   return (
     <div
-      className={`flex justify-center items-center origin-center scale-75`}
+      className={`flex justify-center items-center`}
       style={isNewPost ? profileImgStyleActive : profileImgStyleNotActive}
     >
       <div
