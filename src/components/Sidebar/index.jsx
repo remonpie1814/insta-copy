@@ -19,10 +19,10 @@ const Sidebar = () => {
            flex flex-col
            overflow-x-visible
            overflow-y-clip
-           md:w-[70px]"
+           lg:w-[70px]"
       >
         <div className="flex-shrink-0 gap-3">
-          <div className="w-[200px] py-4 flex justify-start items-center scale-75 md:hidden">
+          <div className="w-[200px] py-4 flex justify-start items-center scale-75 lg:hidden">
             <i
               data-visualcompletion="css-img"
               class="w-[175px] h-[51px] inline-block bg-no-repeat bg-auto"
@@ -37,7 +37,7 @@ const Sidebar = () => {
             className="hidden items-center
             w-[200px] min-w-[200px] h-[50px] px-2 py-8 rounded-2xl
             bg-white-A700
-            md:flex md:w-[50px] md:min-w-[50px] md:justify-center
+            lg:flex lg:w-[50px] lg:min-w-[50px] lg:justify-center
             hover:bg-gray-300"
           >
             <FaInstagram size={30} />
@@ -101,7 +101,7 @@ const TooltipButton = ({ children, text, description, className }) => {
         className="flex flex-row items-center group
         w-[200px] min-w-[200px] h-[50px] px-2 py-2 rounded-2xl
         bg-white-A700
-        md:w-[50px] md:min-w-[50px] md:justify-center
+        lg:w-[50px] lg:min-w-[50px] lg:justify-center
         hover:bg-gray-300"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -109,7 +109,7 @@ const TooltipButton = ({ children, text, description, className }) => {
         <span className="transform origin-center duration-500 group-hover:scale-110">
           {children}
         </span>
-        <span className="pl-2 md:hidden">{text}</span>
+        <span className="pl-2 lg:hidden">{text}</span>
       </button>
       <span
         className={`
@@ -122,7 +122,7 @@ const TooltipButton = ({ children, text, description, className }) => {
           shadow-2xl shadow-slate-800
           transition-all duration-500 ease-in-out
           hidden z-[999]
-          ${showTooltip ? "md:flex scale-100 " : "scale-50"}
+          ${showTooltip ? "lg:flex scale-100 " : "scale-50"}
           `}
       >
         {description ? description : text}

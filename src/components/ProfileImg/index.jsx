@@ -5,7 +5,7 @@ const profileImgStyleNotActive = {
   position: "relative",
   width: "57px",
   height: "57px",
-  margin: "10px",
+  margin: "0px",
   border: "3px solid transparent",
   borderRadius: "50%",
   backgroundImage: "",
@@ -17,7 +17,7 @@ const profileImgStyleActive = {
   position: "relative",
   width: "57px",
   height: "57px",
-  margin: "10px",
+  margin: "0px",
   border: "3px solid transparent",
   borderRadius: "50%",
   backgroundImage:
