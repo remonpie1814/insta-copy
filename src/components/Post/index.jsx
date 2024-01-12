@@ -46,7 +46,7 @@ const Post = ({
                     rounded-md border-[1px] border-neutral-300"
         >
           <Carousel
-            className={`w-full 
+            className={`w-[468px] 
             ${imageRatio ? "aspect-[" + imageRatio + "]" : "aspect-square"}`}
             images={[
               "images/home-phones.png",

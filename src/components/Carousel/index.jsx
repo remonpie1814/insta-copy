@@ -13,14 +13,22 @@ const Carousel = ({ images, className }) => {
   };
 
   return (
-    <div className={`relative ${className}`}>
-      <div
-        className="absolute top-0 left-0 w-full h-full
-           bg-no-repeat bg-contain -z-[1]"
-        style={{
-          backgroundImage: "url(" + images[currentIndex] + ")",
-        }}
-      ></div>
+    <div className={`relative flex flex-row overflow-hidden ${className}`}>
+      {images.map((image, i) => {
+        return (
+          <div
+            key={"carousel" + i}
+            className="absolute top-0 left-0 w-full h-full
+                 bg-no-repeat bg-contain -z-[1]
+                 duration-200"
+            style={{
+              backgroundImage: "url(" + images[i] + ")",
+              transform: "translateX(" + (i - currentIndex) * 100 + "%)",
+            }}
+          ></div>
+        );
+      })}
+
       {currentIndex > 0 && (
         <button
           className="absolute left-1 top-1/2 -translate-y-1/2
