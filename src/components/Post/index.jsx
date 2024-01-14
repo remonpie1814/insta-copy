@@ -1,4 +1,4 @@
-import { Carousel, ProfileImg } from "components";
+import { Carousel, Modal, ProfileImg } from "components";
 import { IoIosMore } from "react-icons/io";
 import {
   FaRegPaperPlane,
@@ -7,7 +7,7 @@ import {
   FaRegBookmark,
 } from "react-icons/fa";
 import { BsEmojiSmile } from "react-icons/bs";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const Post = ({
   children,
@@ -21,6 +21,7 @@ const Post = ({
   isChecked,
 }) => {
   const [comment, setComment] = useState("");
+  const [modal, setModal] = useState(false);
   return (
     <>
       <div className="w-[468px] flex flex-col gap-1 border-b-[1px] border-neutral-400">
@@ -36,7 +37,11 @@ const Post = ({
           <span className="text-gray-700 font-bold">notemanshop</span>
           <span className="text-gray-500 px-2"> · 1일</span>{" "}
           <div className="absolute top-1/2 right-2 transform -translate-y-1/2">
-            <button>
+            <button
+              onClick={() => {
+                setModal(true);
+              }}
+            >
               <IoIosMore size={20} />
             </button>
           </div>
@@ -89,6 +94,43 @@ const Post = ({
             <BsEmojiSmile size={12} />
           </button>
         </div>
+        <Modal
+          isOpen={modal}
+          onClose={() => {
+            setModal(false);
+          }}
+        >
+          <div
+            className="w-[400px] h-auto
+            md:h-3/4 md:w-[300px] sm:w-auto
+            flex flex-col gap-4
+            text-center overflow-y-auto py-4"
+          >
+            <button className="text-red-500 font-bold">신고</button>
+            <hr />
+            <button className="text-red-500 font-bold">팔로우 취소</button>
+            <hr />
+            <button>즐겨찾기에 추가</button>
+            <hr />
+            <button>게시물로 이동</button>
+            <hr />
+            <button>공유대상...</button>
+            <hr />
+            <button>링크복사</button>
+            <hr />
+            <button>퍼가기</button>
+            <hr />
+            <button>이 계정 정보</button>
+            <hr />
+            <button
+              onClick={() => {
+                setModal(false);
+              }}
+            >
+              취소
+            </button>
+          </div>
+        </Modal>
       </div>
     </>
   );
